@@ -20,6 +20,5 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: ${{ matrix.java }}
-    - name: Run Tracemop
-      uses: SoftEngResearch/tracemop@master
+    - uses: SoftEngResearch/tracemop@master
 
