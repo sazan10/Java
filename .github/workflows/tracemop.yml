@@ -1,0 +1,25 @@
+name: Run Tracemop
+on:
+  push:
+
+jobs:
+  run-tracemop:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        java: [ '17' ]
+    name: Java ${{ matrix.java }} Run Tracemop
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        ref: 319d5143cc0919c0749898e0732f32acee1f4aef
+    - name: Set up JDK ${{ matrix.java }}
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: ${{ matrix.java }}
+    - name: Run Tracemop
+      uses: SoftEngResearch/tracemop@master
+
